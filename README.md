@@ -1,73 +1,338 @@
-# Welcome to your Lovable project
+# Backend Developer Assignment - Scalable REST API
 
-## Project info
+A full-stack application demonstrating secure authentication, role-based access control, and RESTful API design following industry best practices.
+
+## 🚀 Live Demo
 
 **URL**: https://lovable.dev/projects/65b6bf26-88a2-4df5-a323-bde6f984232e
 
-## How can I edit this code?
+## 📋 Features Implemented
 
-There are several ways of editing your application.
+### ✅ Backend (Primary Focus)
 
-**Use Lovable**
+- **User Authentication APIs**
+  - Registration and login with secure password hashing
+  - JWT token-based authentication
+  - Session management with automatic token refresh
+  - Email validation and secure password requirements
 
-Simply visit the [Lovable Project](https://lovable.dev/projects/65b6bf26-88a2-4df5-a323-bde6f984232e) and start prompting.
+- **Role-Based Access Control (RBAC)**
+  - User and Admin roles
+  - Security definer functions to prevent RLS recursion
+  - Granular permissions system
+  - Protected routes and API endpoints
 
-Changes made via Lovable will be committed automatically to this repo.
+- **CRUD Operations**
+  - Complete task management system
+  - Create, Read, Update, Delete operations
+  - Input validation with Zod schemas
+  - Error handling and user feedback
 
-**Use your preferred IDE**
+- **Database Schema**
+  - PostgreSQL database with normalized structure
+  - User profiles with auto-creation on signup
+  - User roles table with proper foreign keys
+  - Tasks table with status tracking and priorities
+  - Row-Level Security (RLS) policies for data protection
 
-If you want to work locally using your own IDE, you can clone this repo and push changes. Pushed changes will also be reflected in Lovable.
+- **Security & Validation**
+  - Input sanitization and validation
+  - SQL injection prevention via parameterized queries
+  - JWT token secure handling
+  - Password hashing with bcrypt
+  - CORS configuration
+  - Protected API endpoints
 
-The only requirement is having Node.js & npm installed - [install with nvm](https://github.com/nvm-sh/nvm#installing-and-updating)
+### ✅ Frontend (Supportive)
 
-Follow these steps:
+- **Authentication UI**
+  - Modern login/signup pages with form validation
+  - Real-time error messages
+  - Automatic redirects for authenticated users
+  - Secure token storage
 
-```sh
-# Step 1: Clone the repository using the project's Git URL.
+- **Dashboard**
+  - Task management interface
+  - Status tracking (Pending, In Progress, Completed)
+  - Priority levels (Low, Medium, High)
+  - Due date management
+  - Real-time updates
+
+- **Admin Panel**
+  - User management interface
+  - Role assignment capabilities
+  - User statistics dashboard
+  - Protected admin-only routes
+
+- **Professional Design**
+  - Modern, responsive UI with Tailwind CSS
+  - Consistent design system with semantic tokens
+  - Smooth animations and transitions
+  - Mobile-friendly layouts
+
+## 🏗️ Architecture & Scalability
+
+### Database Design
+- **Normalized Schema**: Separate tables for profiles, roles, and tasks to prevent data redundancy
+- **Foreign Key Constraints**: Proper relationships with cascading deletes
+- **Indexes**: Optimized queries with appropriate indexing
+- **Triggers**: Automatic timestamp updates and profile creation
+
+### Security Architecture
+- **Row-Level Security (RLS)**: Database-level access control
+- **Security Definer Functions**: Safe role checking without recursion
+- **Input Validation**: Client and server-side validation with Zod
+- **JWT Authentication**: Stateless authentication with secure token handling
+
+### Scalability Features
+- **Modular Code Structure**: Separated concerns with reusable components
+- **API Versioning Ready**: Structured for easy version management
+- **Environment Variables**: Configuration through environment files
+- **Database Connection Pooling**: Supabase handles connection management
+- **Stateless Authentication**: JWT allows horizontal scaling
+
+### Future Scalability Paths
+- **Microservices Architecture**: Modular design ready for service extraction
+- **Caching Layer**: Redis integration for frequently accessed data
+- **Load Balancing**: Stateless design supports multiple instances
+- **Database Replication**: Read replicas for scaling reads
+- **API Rate Limiting**: Protect against abuse
+- **Logging & Monitoring**: Structured logging for observability
+
+## 🛠️ Technology Stack
+
+### Backend
+- **Database**: PostgreSQL (via Lovable Cloud/Supabase)
+- **Authentication**: Supabase Auth with JWT
+- **Validation**: Zod schemas
+- **API Pattern**: RESTful design
+
+### Frontend
+- **Framework**: React 18 with TypeScript
+- **Build Tool**: Vite
+- **Styling**: Tailwind CSS with custom design system
+- **UI Components**: Shadcn/ui
+- **Form Handling**: React Hook Form
+- **Routing**: React Router v6
+- **State Management**: React Query
+
+## 📁 Project Structure
+
+```
+src/
+├── components/           # Reusable UI components
+│   ├── ui/              # Shadcn UI components
+│   ├── TaskList.tsx     # Task display and management
+│   └── TaskForm.tsx     # Task creation/editing form
+├── pages/               # Route pages
+│   ├── Index.tsx        # Landing page
+│   ├── Auth.tsx         # Login/Signup page
+│   ├── Dashboard.tsx    # Main dashboard
+│   └── Admin.tsx        # Admin panel
+├── lib/                 # Utilities and helpers
+│   ├── auth.ts          # Authentication functions
+│   └── utils.ts         # Common utilities
+├── integrations/        # External integrations
+│   └── supabase/        # Supabase client
+└── hooks/               # Custom React hooks
+
+supabase/
+└── migrations/          # Database migrations
+```
+
+## 🔐 Security Best Practices
+
+1. **Authentication**
+   - Passwords hashed with bcrypt
+   - JWT tokens with expiration
+   - Secure token storage
+   - Auto-confirm emails enabled for testing (disable in production)
+
+2. **Authorization**
+   - Row-Level Security policies
+   - Role-based access control
+   - Security definer functions for safe queries
+
+3. **Input Validation**
+   - Client-side validation with Zod
+   - Server-side validation in database
+   - SQL injection prevention via parameterized queries
+   - XSS protection with proper encoding
+
+4. **API Security**
+   - CORS configuration
+   - Protected endpoints
+   - Error messages don't leak sensitive data
+
+## 🚀 Setup Instructions
+
+### Prerequisites
+- Node.js (v18+)
+- npm or yarn
+
+### Local Development
+
+```bash
+# Clone the repository
 git clone <YOUR_GIT_URL>
 
-# Step 2: Navigate to the project directory.
+# Navigate to project directory
 cd <YOUR_PROJECT_NAME>
 
-# Step 3: Install the necessary dependencies.
-npm i
+# Install dependencies
+npm install
 
-# Step 4: Start the development server with auto-reloading and an instant preview.
+# Start development server
 npm run dev
 ```
 
-**Edit a file directly in GitHub**
+The application will be available at `http://localhost:8080`
 
-- Navigate to the desired file(s).
-- Click the "Edit" button (pencil icon) at the top right of the file view.
-- Make your changes and commit the changes.
+### Environment Variables
 
-**Use GitHub Codespaces**
+The project uses Lovable Cloud which automatically manages environment variables:
+- `VITE_SUPABASE_URL`
+- `VITE_SUPABASE_PUBLISHABLE_KEY`
+- `VITE_SUPABASE_PROJECT_ID`
 
-- Navigate to the main page of your repository.
-- Click on the "Code" button (green button) near the top right.
-- Select the "Codespaces" tab.
-- Click on "New codespace" to launch a new Codespace environment.
-- Edit files directly within the Codespace and commit and push your changes once you're done.
+## 📊 API Endpoints
 
-## What technologies are used for this project?
+### Authentication
+- `POST /auth/signup` - Register new user
+- `POST /auth/signin` - Login user
+- `POST /auth/signout` - Logout user
+- `GET /auth/session` - Get current session
 
-This project is built with:
+### Tasks (Protected)
+- `GET /tasks` - Get user's tasks
+- `POST /tasks` - Create new task
+- `PUT /tasks/:id` - Update task
+- `DELETE /tasks/:id` - Delete task
 
-- Vite
-- TypeScript
-- React
-- shadcn-ui
-- Tailwind CSS
+### Admin (Admin Only)
+- `GET /profiles` - Get all users
+- `GET /user_roles` - Get all user roles
+- `PUT /user_roles/:id` - Update user role
 
-## How can I deploy this project?
+## 🧪 Testing
 
-Simply open [Lovable](https://lovable.dev/projects/65b6bf26-88a2-4df5-a323-bde6f984232e) and click on Share -> Publish.
+### Test Accounts
 
-## Can I connect a custom domain to my Lovable project?
+You can create test accounts through the signup page. The first user to register can be manually promoted to admin in the backend panel.
 
-Yes, you can!
+### Admin Access
 
-To connect a domain, navigate to Project > Settings > Domains and click Connect Domain.
+To test admin features:
+1. Sign up for an account
+2. Access Lovable Cloud backend
+3. Navigate to Database → user_roles
+4. Update your role to 'admin'
 
-Read more here: [Setting up a custom domain](https://docs.lovable.dev/features/custom-domain#custom-domain)
+## 📝 API Documentation
+
+### Request Examples
+
+#### Create Task
+```json
+POST /tasks
+{
+  "title": "Complete assignment",
+  "description": "Finish backend developer assignment",
+  "status": "pending",
+  "priority": "high",
+  "due_date": "2024-12-31T23:59:59Z"
+}
+```
+
+#### Update Task
+```json
+PUT /tasks/:id
+{
+  "status": "completed"
+}
+```
+
+### Response Format
+
+#### Success Response
+```json
+{
+  "data": { ... },
+  "error": null
+}
+```
+
+#### Error Response
+```json
+{
+  "data": null,
+  "error": {
+    "message": "Error description",
+    "code": "ERROR_CODE"
+  }
+}
+```
+
+## 🔄 Database Schema
+
+### Tables
+
+#### profiles
+- `id` (UUID, Primary Key, References auth.users)
+- `email` (TEXT, NOT NULL)
+- `full_name` (TEXT)
+- `created_at` (TIMESTAMPTZ)
+- `updated_at` (TIMESTAMPTZ)
+
+#### user_roles
+- `id` (UUID, Primary Key)
+- `user_id` (UUID, Foreign Key → profiles)
+- `role` (ENUM: 'user', 'admin')
+- `created_at` (TIMESTAMPTZ)
+
+#### tasks
+- `id` (UUID, Primary Key)
+- `user_id` (UUID, Foreign Key → profiles)
+- `title` (TEXT, NOT NULL)
+- `description` (TEXT)
+- `status` (ENUM: 'pending', 'in_progress', 'completed')
+- `priority` (ENUM: 'low', 'medium', 'high')
+- `due_date` (TIMESTAMPTZ)
+- `created_at` (TIMESTAMPTZ)
+- `updated_at` (TIMESTAMPTZ)
+
+## 📦 Deployment
+
+### Deploy to Production
+
+1. Click "Publish" in Lovable editor
+2. Configure custom domain (optional)
+3. Update authentication settings for production:
+   - Disable auto-confirm emails
+   - Configure email templates
+   - Set up proper redirect URLs
+
+## 🎯 Assignment Deliverables
+
+✅ **Backend Project** - Hosted on Lovable Cloud
+✅ **Working APIs** - All CRUD operations functional
+✅ **Frontend UI** - React application with full integration
+✅ **API Documentation** - This README serves as documentation
+✅ **Scalability Notes** - See Architecture & Scalability section
+
+## 🔗 Links
+
+- **Live Demo**: https://lovable.dev/projects/65b6bf26-88a2-4df5-a323-bde6f984232e
+- **GitHub Repository**: Connected via Lovable GitHub integration
+- **Backend Panel**: Access via Lovable Cloud tab
+
+## 👨‍💻 Contact
+
+For questions about this assignment submission:
+- Email: [Your Email]
+- GitHub: [Your GitHub]
+- Portfolio: [Your Portfolio]
+
+---
+
+**Built with**: React, TypeScript, Tailwind CSS, PostgreSQL, and Lovable Cloud
