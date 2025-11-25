@@ -1,11 +1,6 @@
-# Backend Developer Assignment - Scalable REST API
+# Scalable REST API
 
 A full-stack application demonstrating secure authentication, role-based access control, and RESTful API design following industry best practices.
-
-## 🚀 Live Demo
-
-**URL**: https://lovable.dev/projects/65b6bf26-88a2-4df5-a323-bde6f984232e
-
 ## 📋 Features Implemented
 
 ### ✅ Backend (Primary Focus)
@@ -102,7 +97,7 @@ A full-stack application demonstrating secure authentication, role-based access 
 ## 🛠️ Technology Stack
 
 ### Backend
-- **Database**: PostgreSQL (via Lovable Cloud/Supabase)
+- **Database**: PostgreSQL (via Supabase)
 - **Authentication**: Supabase Auth with JWT
 - **Validation**: Zod schemas
 - **API Pattern**: RESTful design
@@ -319,20 +314,6 @@ PUT /tasks/:id
 ✅ **Frontend UI** - React application with full integration
 ✅ **API Documentation** - This README serves as documentation
 ✅ **Scalability Notes** - See Architecture & Scalability section
-
-## 🔗 Links
-
-- **Live Demo**: https://lovable.dev/projects/65b6bf26-88a2-4df5-a323-bde6f984232e
-- **GitHub Repository**: Connected via Lovable GitHub integration
-- **Backend Panel**: Access via Lovable Cloud tab
-
-## 👨‍💻 Contact
-
-For questions about this assignment submission:
-- Email: [Your Email]
-- GitHub: [Your GitHub]
-- Portfolio: [Your Portfolio]
-
 ---
 
-**Built with**: React, TypeScript, Tailwind CSS, PostgreSQL, and Lovable Cloud
+**Built with**: React, TypeScript, Tailwind CSS, PostgreSQL.
